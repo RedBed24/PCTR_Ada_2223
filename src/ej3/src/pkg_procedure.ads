@@ -17,7 +17,7 @@ package body pkg_tarea is
          InicioEjecucion := Clock;
          while Clock - InicioEjecucion < TiempoEjecucion loop
             variable:= variable + 1;
-            end loop;
+         end loop;
 
          Put_Line("Tarea("&Image(Current_Task)&"):Variable interna: " & Integer'Image(variable));
 

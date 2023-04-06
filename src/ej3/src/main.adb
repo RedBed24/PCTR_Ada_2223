@@ -8,11 +8,11 @@ procedure main is
 
    tarea2 : pkg_tarea.tarea_periodica;
 
-begin
-   delay 8.0;
-   abort tarea1;
-   abort tarea2;
-   delay 2.0;
-   Put_Line("Fin del programa.");
+   begin
+      delay 8.0;
+      abort tarea1;
+      abort tarea2;
+      delay 2.0;
+      Put_Line("Fin del programa.");
 
 end main;
