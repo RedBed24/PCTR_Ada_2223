@@ -5,10 +5,13 @@ DIRSRC := src/
 
 COMPILER := gnatmake
 
-all : dirs pkg_procedure
+all : dirs main
 
-pkg_procedure :
-	$(COMPILER) -I$(DIRHEA) $(DIRSRC)$@.adb -D $(DIROBJ) -o $(DIREXE)$@
+main : $(DIRSRC)main.adb
+	$(COMPILER) -I$(DIRHEA) $^ -D $(DIROBJ) -o $(DIREXE)$@
+
+execution : $(DIREXE)main
+	$^
 
 dirs :
 	mkdir -p $(DIROBJ) $(DIREXE)

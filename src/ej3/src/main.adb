@@ -1,12 +1,12 @@
 with Ada.Real_Time; use Ada.Real_Time;
 with Ada.Text_IO; use Ada.Text_IO;
-with pkg_tarea;
+with pkg_tarea; use pkg_tarea;
 
 procedure main is
 
-   tarea1 : pkg_tarea.tarea_periodica;
+   tarea1 : tarea_periodica_t;
 
-   tarea2 : pkg_tarea.tarea_periodica;
+   tarea2 : tarea_periodica_t;
 
    begin
       delay 8.0;
