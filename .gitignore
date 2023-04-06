@@ -2,7 +2,7 @@
 *~
 
 # Ignore executables folders
-*exe/
+*exec/
 
 # Ignore object folders
 *obj/
