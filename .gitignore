@@ -1,0 +1,9 @@
+# Ignore Vim backup files
+*~
+
+# Ignore executables folders
+*exe/
+
+# Ignore object folders
+*obj/
+
