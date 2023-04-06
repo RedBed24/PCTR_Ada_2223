@@ -5,7 +5,7 @@ With pkg_tarea; Use pkg_tarea;
 
 procedure main is
 
-	tarea: tarea_t;
+   tarea: tarea_t;
    Numero : Integer;
 
 begin
@@ -13,14 +13,14 @@ begin
    loop
       -- mostrar consultas
 
-		tarea.EstadoConsultas;
+      tarea.EstadoConsultas;
       Leer_Entero (Numero);
 
       if Numero = 0 then
          exit;
-		end if;
+      end if;
 
-		tarea.EsPar (Numero);
+      tarea.EsPar (Numero);
 
    end loop;
 
