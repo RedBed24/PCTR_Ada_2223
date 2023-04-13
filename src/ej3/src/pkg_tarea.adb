@@ -1,36 +1,39 @@
 With Ada.Text_IO; Use Ada.Text_IO;
+With Ada.Real_Time; Use Ada.Real_Time;
+With Ada.Task_Identification; Use Ada.Task_Identification;
 
 package body pkg_tarea is
 
    task body tarea_periodica_t is
 
-      TiempoActivacion : constant := 1000; 
-      Periodo : constant := 2000; 
-      TiempoEjecucion : constant := 1000; 
-      variable : Integer := 0;
+      TiempoActivacion : constant Time_Span := Seconds (1); 
+      Periodo : constant Time_Span := Milliseconds (2000); 
+      TiempoEjecucion : constant Time_Span := Milliseconds (1000); 
+      InicioEjecucion : Time;
+      variable_entera : Integer := 0;
 
    begin
+      -- Como está en Time_Span pero se espera una duración, lo convertimos a duración
+      delay To_Duration (TiempoActivacion);
 
       loop
-         delay To_Duration(TiempoActivacion);
 
-         -- FIXME: qué es Clock?
+         -- Clock es una variable que nos proporciona el paquete Real_Time
          InicioEjecucion := Clock;
-         -- FIXME: está bien la condición del bucle?
          while Clock - InicioEjecucion < TiempoEjecucion loop
-            variable:= variable + 1;
+            variable_entera := variable_entera + 1;
          end loop;
 
-         -- FIXME: qué es Current_Task?
-         Put_Line ("Tarea(" & Image (Current_Task) & "):Variable interna: " & Integer'Image (variable));
+         -- Current_Task nos lo proporciona Task_Identification
+         Put_Line ("Tarea(" & Image (Current_Task) & "): Variable interna: " & Integer'Image (variable_entera));
 
-         variable := 0;
+         variable_entera := 0;
          
-         delay Periodo; 
+         delay To_Duration (Periodo); 
 
       end loop;
 
-  end tarea_periodica;
+  end tarea_periodica_t;
 
 end pkg_tarea;
 
