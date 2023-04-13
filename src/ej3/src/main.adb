@@ -1,4 +1,3 @@
-With Ada.Real_Time; Use Ada.Real_Time;
 With Ada.Text_IO; Use Ada.Text_IO;
 With pkg_tarea; Use pkg_tarea;
 
