@@ -2,25 +2,27 @@ package body pkg_sem is
 
    procedure wait (sem : in out sem_t) is
    begin
-      loop
-         select
-            when sem = 0 =>
-               sem := 1;
-               exit;
-         or
-            await sem;
-
-         end select;
-      end loop;
+      sem.wait;
    end wait;
 
    procedure signal (sem : in out sem_t) is
    begin
-      select
-         when sem = 1 =>
-            sem := 0;
-      end select;
+      sem.signal;
    end signal;
+
+   protected body sem_t is
+
+      entry wait when valor_sem > 0 is
+      begin
+         valor_sem := 0;
+      end wait;
+
+      procedure signal is
+      begin
+         valor_sem := 1;
+      end signal;
+
+   end sem_t;
 
 end pkg_sem;
 
