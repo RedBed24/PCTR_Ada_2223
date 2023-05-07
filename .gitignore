@@ -1,5 +1,9 @@
 # Ignore Vim backup files
 *~
+.*.swp
+
+# Ignore LibreOffice backup files
+.~lock.*\#
 
 # Ignore executables folders
 *exec/
