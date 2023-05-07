@@ -3,17 +3,17 @@ With pkg_sem; Use pkg_sem;
 
 procedure main is
 
-   sem : sem_t(0);
+   sem : sem_t;
 
 begin
-
-   Put ("Esperando..."); New_Line;
-
-   wait(sem);
 
    Put ("Señalizando..."); New_Line;
 
    signal(sem);
+
+   Put ("Esperando..."); New_Line;
+
+   wait(sem);
 
    Put ("Finalizando..."); New_Line;
 
