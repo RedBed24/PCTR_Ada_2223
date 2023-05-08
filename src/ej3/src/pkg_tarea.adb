@@ -10,13 +10,15 @@ package body pkg_tarea is
       Periodo : constant Time_Span := Milliseconds (2000); 
       TiempoEjecucion : constant Time_Span := Milliseconds (1000); 
       InicioEjecucion : Time;
-      variable_entera : Integer := 0;
+      variable_entera : Integer;
 
    begin
       -- Como está en Time_Span pero se espera una duración, lo convertimos a duración
       delay To_Duration (TiempoActivacion);
 
       loop
+
+         variable_entera := 0;
 
          -- Clock es una variable que nos proporciona el paquete Real_Time
          InicioEjecucion := Clock;
@@ -27,8 +29,6 @@ package body pkg_tarea is
          -- Current_Task nos lo proporciona Task_Identification
          Put_Line ("Tarea(" & Image (Current_Task) & "): Variable interna: " & Integer'Image (variable_entera));
 
-         variable_entera := 0;
-         
          delay To_Duration (Periodo); 
 
       end loop;
