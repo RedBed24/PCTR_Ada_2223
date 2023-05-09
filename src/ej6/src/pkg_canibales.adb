@@ -7,7 +7,7 @@ package body pkg_canibales is
       o.quedaComida (result);
    end quedaComida;
 
-   procedure comer (o : in out Olla) is 
+   procedure cogerRacion (o : in out Olla) is 
    begin
       o.comer;
    end comer;
@@ -24,7 +24,7 @@ package body pkg_canibales is
          result := Raciones > 0;
       end quedaComida;
 
-      procedure comer is
+      procedure cogerRacion is
       begin
          Raciones := Raciones - 1;
       end comer;

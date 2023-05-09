@@ -31,7 +31,7 @@ package body pkg_canibales.canibal is
             end if;
 
             Ada.Text_IO.Put_Line (Character'Image (identificador) & " va a comer");
-            comer (olla.all);
+            cogerRacion (olla.all);
 
          pkg_sem.signal (acceso_olla.all);
 

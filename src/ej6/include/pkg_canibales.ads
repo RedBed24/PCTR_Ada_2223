@@ -7,7 +7,7 @@ package pkg_canibales is
 
    -- Interfaz para usar Olla
    procedure quedaComida (o : in out Olla; result : out Boolean);
-   procedure comer (o : in out Olla);
+   procedure cogerRacion (o : in out Olla);
    procedure rellenar (o : in out Olla);
 
 private
@@ -15,7 +15,7 @@ private
    protected type Olla (Capacidad : Natural) is
 
       procedure quedaComida (result : out Boolean);
-      procedure comer;
+      procedure cogerRacion;
       procedure rellenar;
    private
 
